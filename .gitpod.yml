@@ -1,0 +1,15 @@
+image:
+  file: .gitpod.dockerfile
+
+tasks:
+  - init: >
+      echo 'export PATH=~/.local/bin:"$PATH"' >> ~/.bashrc &&
+      source ~/.bashrc &&
+      cd /workspace &&
+      west init -l zephyr &&
+      west update &&
+      pip3 install --user -r /workspace/zephyr/scripts/requirements.txt
+    command: >
+      export ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb &&
+      export GNUARMEMB_TOOLCHAIN_PATH="/usr" &&
+      source /workspace/zephyr/zephyr-env.sh
