@@ -6,6 +6,7 @@ tasks:
       echo 'export PATH=~/.local/bin:"$PATH"' >> ~/.bashrc &&
       source ~/.bashrc &&
       cd /workspace &&
+      pip3 install --user -U west &&
       west init -l zephyr &&
       west update &&
       pip3 install --user -r /workspace/zephyr/scripts/requirements.txt
